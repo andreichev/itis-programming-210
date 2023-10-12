@@ -8,6 +8,8 @@ public interface XList<T> extends Iterable<T> {
     T get(int index);
     int size();
 
+    XList<T> filtered(Filter<T> filter);
+
     @Override
     Iterator<T> iterator();
 }

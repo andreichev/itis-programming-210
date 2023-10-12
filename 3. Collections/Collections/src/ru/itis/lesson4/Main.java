@@ -1,13 +1,13 @@
 package ru.itis.lesson4;
 
+import ru.itis.lesson4.collections.XList;
+import ru.itis.lesson4.collections.XMap;
 import ru.itis.lesson4.collections.XSet;
 import ru.itis.lesson4.collections.impl.XArrayList;
 import ru.itis.lesson4.collections.impl.XHashMap;
-import ru.itis.lesson4.collections.XList;
-import ru.itis.lesson4.collections.XMap;
 import ru.itis.lesson4.collections.impl.XHashSet;
 
-import java.util.Map;
+import java.util.Iterator;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,6 +16,24 @@ public class Main {
         list.add("ABCD");
         list.add("FDGKLKDKFL");
         for (String x: list) {
+            System.out.println(x);
+        }
+
+        XList<Integer> list1 = new XArrayList<>();
+        list1.add(3);
+        list1.add(4);
+        list1.add(5);
+        list1.add(10);
+        list1.add(15);
+        list1.add(2);
+        list1.add(45);
+        list1.add(100);
+        XList<Integer> filtered1 = list1.filtered(x -> x % 2 == 0);
+        for (Integer x: filtered1) {
+            System.out.println(x);
+        }
+        XList<Integer> filtered2 = list1.filtered(x -> x > 10);
+        for (Integer x: filtered2) {
             System.out.println(x);
         }
 

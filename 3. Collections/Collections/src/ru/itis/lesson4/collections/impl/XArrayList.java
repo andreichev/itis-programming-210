@@ -1,5 +1,6 @@
 package ru.itis.lesson4.collections.impl;
 
+import ru.itis.lesson4.collections.Filter;
 import ru.itis.lesson4.collections.XList;
 
 import java.util.Iterator;
@@ -46,6 +47,17 @@ public class XArrayList<T> implements XList<T> {
     @Override
     public T get(int index) {
         return (T) data[index];
+    }
+
+    @Override
+    public XList<T> filtered(Filter<T> filter) {
+        XList<T> newList = new XArrayList<>();
+        for (T item : this) {
+            if(filter.decide(item)) {
+                newList.add(item);
+            }
+        }
+        return newList;
     }
 
     @Override
