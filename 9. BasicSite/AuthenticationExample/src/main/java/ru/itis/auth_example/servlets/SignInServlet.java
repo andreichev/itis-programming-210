@@ -22,7 +22,13 @@ public class SignInServlet extends HttpServlet {
         // while ((line = reader.readLine()) != null) {
         //     System.out.println(line);
         // }
-        System.out.println(req.getParameter("username"));
-        System.out.println(req.getParameter("password"));
+        String username = req.getParameter("username");
+        String password = req.getParameter("password");
+        if(password.equals("123123")) {
+            resp.sendRedirect("profile");
+        } else {
+            req.setAttribute("errorMessage", "Incorrect password");
+            req.getRequestDispatcher("/sign-in.ftl").forward(req, resp);
+        }
     }
 }

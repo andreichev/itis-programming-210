@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Вход</h1>
+<h1>Регистрация</h1>
 <form method="post">
     <div>NAME</div>
     <input class="input-field" type="text" name="username">
