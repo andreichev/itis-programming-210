@@ -27,22 +27,12 @@ public class SignUpServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        if(session.getAttribute("user") != null) {
-            resp.sendRedirect("profile");
-            return;
-        }
         req.setAttribute("errorMessage", "");
         req.getRequestDispatcher("sign-up.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        if(session.getAttribute("user") != null) {
-            resp.sendRedirect("profile");
-            return;
-        }
         SignUpForm form = SignUpForm.builder()
                 .username(req.getParameter("username"))
                 .password(req.getParameter("password"))
@@ -57,6 +47,7 @@ public class SignUpServlet extends HttpServlet {
             req.getRequestDispatcher("sign-up.jsp").forward(req, resp);
             return;
         }
+        HttpSession session = req.getSession();
         session.setAttribute("user", user);
         resp.sendRedirect("profile");
     }
