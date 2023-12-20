@@ -15,7 +15,7 @@ public class Main {
         cfg.setDefaultEncoding("UTF-8");
 
         Map<String, Object> root = new HashMap<>();
-        root.put("Name", "Ilnaz");
+        root.put("Name", "Halitov Ildus");
         root.put("N", 7);
 
         Template temp = cfg.getTemplate("page.ftl");
